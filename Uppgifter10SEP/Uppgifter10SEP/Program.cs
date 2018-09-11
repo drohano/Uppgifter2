@@ -29,8 +29,8 @@ namespace Uppgifter10SEP
                         Console.WriteLine("\n Write a sentence ");
                         String sentenceOne = Console.ReadLine();
 
-                        Regex regex = new Regex(@"[^\W\d](\w|[-']{1,2}(?=\w))*");
-                        MatchCollection matchesOne = regex.Matches(sentenceOne);
+                        Regex regexA = new Regex(@"[^\W\d](\w|[-']{1,2}(?=\w))*");
+                        MatchCollection matchesOne = regexA.Matches(sentenceOne);
 
                         Console.WriteLine("\n The sentence contains {0} words." , matchesOne.Count);
 
@@ -47,7 +47,34 @@ namespace Uppgifter10SEP
 
 
                     case 2:
+                        Console.WriteLine("\n Write a sentence.\n The words will be placed in order based on their size.\n ");
+                        String sentenceTwo = Console.ReadLine();
 
+                        Regex regexB = new Regex(@"[^\W\d](\w|[-']{1,2}(?=\w))*");
+                        MatchCollection matchesTwo = regexB.Matches(sentenceTwo);
+                        
+                        //put stings in the array
+                        String[] arrayTwo = new string [matchesTwo.Count];
+                        int indexTwo = 0;
+                        foreach(Match match in matchesTwo)
+                        {
+                            arrayTwo[indexTwo++] = match.ToString();
+                        }
+
+                        // compares the words 
+                        Array.Sort(arrayTwo, (x, y) => x.Length.CompareTo(y.Length));
+                        foreach(string wordTwo in arrayTwo)
+                        {
+                            Console.WriteLine(wordTwo);                            
+                        }
+
+                        Console.WriteLine("\n"); 
+
+                        Array.Sort(arrayTwo, (x, y) => y.Length.CompareTo(x.Length));
+                        foreach (string wordTwo in arrayTwo)
+                        {
+                            Console.WriteLine(wordTwo);
+                        }
 
                         start = 1;
                         break;
