@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Uppgifter10SEP
 {
@@ -19,12 +20,26 @@ namespace Uppgifter10SEP
             {
                 int n;
 
-                Console.WriteLine("Pick a programm \n 1 , 2 , 3 , 4 , 5 , 6 , 7, 8 \n Press 0 then enter to exit");
+                Console.WriteLine("\n Pick a programm \n 1 , 2 , 3 , 4 , 5 , 6 , 7, 8 \n Press 0 then enter to exit");
                 n = Convert.ToInt32(Console.ReadLine());
 
                 switch (n)
                 {
                     case 1:
+                        Console.WriteLine("\n Write a sentence ");
+                        String sentenceOne = Console.ReadLine();
+
+                        Regex regex = new Regex(@"[^\W\d](\w|[-']{1,2}(?=\w))*");
+                        MatchCollection matchesOne = regex.Matches(sentenceOne);
+
+                        Console.WriteLine("\n The sentence contains {0} words." , matchesOne.Count);
+
+                        String[] words = sentenceOne.Split(' ');
+                        foreach (Match word in matchesOne)
+                        {
+                            Console.WriteLine(" {0} contains {1} characters." , word, word.Length);
+                        }
+
 
 
                         start = 1;
