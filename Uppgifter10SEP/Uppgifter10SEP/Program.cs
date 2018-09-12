@@ -131,7 +131,34 @@ namespace Uppgifter10SEP
 
 
                     case 5:
-                        Console.WriteLine("\n Write one word at a time \n");
+                        Console.WriteLine("\n Write one word at a time. \n Then write 'avsluta'  to finnish. \n");
+                        List<string> testFi = new List<string>();
+
+                        bool thing = true;
+                        do
+
+                        {
+                            String inputFive = Console.ReadLine();
+                            
+                            testFi.Add(inputFive);
+                            testFi.ToArray();
+
+                            if (inputFive == "avsluta")
+                            {
+
+                                thing = false;
+                            }
+ 
+
+                        }
+                        while (thing);
+
+                        
+                           // Console.Write(derp + " ");
+                            Console.WriteLine("[{0}]", string.Join(",", testFi));
+                        
+
+                       
 
                         start = 1;
                         break;
