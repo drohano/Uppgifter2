@@ -114,6 +114,7 @@ namespace Uppgifter10SEP
 
 
 
+
                         var listFour = new List<char>(charArray);
                         var resultFour = listFour.GroupBy(x => x)
                             .Select(g => new { Value = g.Key, Count = g.Count() })
@@ -130,7 +131,7 @@ namespace Uppgifter10SEP
 
 
                     case 5:
-
+                        Console.WriteLine("\n Write one word at a time \n");
 
                         start = 1;
                         break;
