@@ -152,20 +152,30 @@ namespace Uppgifter10SEP
 
                         }
                         while (thing);
-
                         
-                           // Console.Write(derp + " ");
-                            Console.WriteLine("[{0}]", string.Join(",", testFi));
-                        
-
-                       
+                        Console.WriteLine("[{0}]", string.Join(",", testFi));
+                                             
 
                         start = 1;
                         break;
 
 
                     case 6:
+                        Console.WriteLine("\n Guess a number 1 - 21 and win a PRIZE \n");
 
+                        int inputSix = Convert.ToInt32(Console.ReadLine());
+                        Random randomSix = new Random();
+                        int answerSix = randomSix.Next(1, 22);
+
+                        if (inputSix == answerSix)
+                        {
+                            Console.WriteLine(" GZ YOU WON \n accept this gift ( . Y . )");
+                        }
+
+                        else
+                        {
+                            Console.WriteLine(" That's the wrong number\n The right number was: " + answerSix + "Try again later");
+                        }
 
                         start = 1;
                         break;
