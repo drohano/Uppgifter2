@@ -81,6 +81,25 @@ namespace Uppgifter10SEP
 
 
                     case 3:
+                        Console.WriteLine("\n Write a sentence.");
+                        String sentenceThree = Console.ReadLine();
+
+                        String testThree = sentenceThree.ToLower();
+                        
+
+                        String[] test = testThree.Split( new char[] { ' ', ',', '.' }, StringSplitOptions.RemoveEmptyEntries);
+
+
+                        var list = new List<string> (test);
+                        var result = list.GroupBy(x => x)
+                            .Select(g => new { Value = g.Key, Count = g.Count() })
+                            .OrderByDescending(x => x.Count);
+
+                        foreach (var x in result)
+                        {
+                            Console.WriteLine("word: " + x.Value + ", appears - " + x.Count +" times");
+                        }
+
 
 
                         start = 1;
@@ -89,7 +108,21 @@ namespace Uppgifter10SEP
 
 
                     case 4:
+                        Console.WriteLine("\n Write a sentence. \n");
+                        String sentenceFour = Console.ReadLine();
+                        char[] charArray = sentenceFour.ToCharArray();
 
+
+
+                        var listFour = new List<char>(charArray);
+                        var resultFour = listFour.GroupBy(x => x)
+                            .Select(g => new { Value = g.Key, Count = g.Count() })
+                            .OrderByDescending(x => x.Count);
+
+                        foreach (var x in resultFour)
+                        {
+                            Console.WriteLine("word: " + x.Value + ", appears - " + x.Count + " times");
+                        }
 
                         start = 1;
                         break;
