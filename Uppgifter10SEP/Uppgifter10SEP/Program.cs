@@ -182,7 +182,44 @@ namespace Uppgifter10SEP
 
 
                     case 7:
+                        Console.WriteLine("Write a sentence that you want to translate to L33T speak");
+                        String sentenceSeven = Console.ReadLine().ToUpper();
 
+                        Dictionary<string, string> dict = new Dictionary<string, string>
+                        {
+                            { "A", @"/-\" },
+                            { "B", @"|3" },
+                            { "C", @"(" },
+                            { "D", @"|)" },
+                            { "E", @"3" },
+                            { "F", @"|=" },
+                            { "G", @"9" },
+                            { "H", @"]-[" },
+                            { "I", @"][" },
+                            { "J", @"_|" },
+                            { "K", @"|<" },
+                            { "L", @"|_" },
+                            { "M", @"|\/|" },
+                            { "N", @"|\|" },
+                            { "O", @"0" },
+                            { "P", @"|?" },
+                            { "Q", @"(,)" },
+                            { "R", @"|2" },
+                            { "S", @"5" },
+                            { "T", @"7" },
+                            { "U", @"|_|" },
+                            { "V", @"\/" },
+                            { "W", @"\/\/" },
+                            { "X", @"}{" },
+                            { "Y", @"'/" },
+                            { "Z", @"2" }
+                        };
+
+                        foreach (KeyValuePair<string, string> letter in dict)
+                        {
+                            sentenceSeven = sentenceSeven.Replace(letter.Key, letter.Value);
+                        }
+                        Console.WriteLine("In leet speak: " + sentenceSeven + "\n");
 
                         start = 1;
                         break;
